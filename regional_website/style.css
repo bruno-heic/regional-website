@@ -1,0 +1,308 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #6b6b6b;
+  --color-border: #e4e4e4;
+  --color-sidebar-active-bg: #e8f0fe;
+  --color-search-bg: #f5f5f5;
+  --color-lingua: #FFD000;
+  --color-estados: #01499A;
+  --color-culinaria: #e8a000;
+  --color-biomas: #2ecc71;
+  --color-populacao: #9b59b6;
+  --font: 'Google Sans', sans-serif;
+  --font-text: 'Google Sans Text', 'Google Sans', sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── TOP NAV ── */
+.top-nav {
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 20px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.top-nav .logo-area {
+  display: flex;
+  align-items: center;
+  margin-right: 32px;
+  flex-shrink: 0;
+}
+.top-nav .logo-area svg {
+  display: block;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.nav-links a:hover { background: #f5f5f5; }
+.nav-links a.active { background: var(--color-search-bg); }
+.nav-links a.lingua    { color: var(--color-lingua); }
+.nav-links a.estados   { color: var(--color-estados); }
+.nav-links a.culinaria { color: var(--color-culinaria); }
+.nav-links a.biomas    { color: var(--color-biomas); }
+.nav-links a.populacao { color: var(--color-populacao); }
+
+
+/* ── SUB-HEADER ── */
+.sub-header {
+  border-bottom: 1px solid var(--color-border);
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+}
+.sub-header .date {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.sub-header .spacer { flex: 1; }
+.sub-header .widgets {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.sub-header .widget {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.25;
+}
+.sub-header .widget .label {
+  font-size: 12px;
+  color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.sub-header .widget .label .material-icons-round {
+  font-size: 15px;
+}
+.sub-header .widget .value {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -2%;
+}
+
+/* ── LAYOUT ── */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 105px);
+}
+
+/* ── SIDEBAR ── */
+/* ── SIDEBAR REFACTOR ── */
+.sidebar {
+    width: 200px;
+    flex-shrink: 0;
+    border-right: 1px solid var(--color-border);
+    padding: 16px 8px;
+    display: flex;        /* Transforma a sidebar em um container flex vertical */
+    flex-direction: column;
+    gap: 4px;             /* Cria um espaçamento uniforme entre os links */
+}
+  
+.sidebar a {
+    display: flex;        /* Mudado para flex para alinhar melhor o conteúdo interno */
+    align-items: center;
+    padding: 8px 16px;    /* Ajustado: menos espaço vertical, boa margem nas laterais */
+    margin: 0 4px;        /* Evita que o fundo do hover cole na borda da sidebar */
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 13px;
+    border-radius: 12px;  /* Um raio ligeiramente menor costuma casar melhor com menus */
+    transition: background 0.15s ease, color 0.15s ease; /* Transição suave */
+    font-family: var(--font-text);
+}
+
+.sidebar a:hover { background: #f5f5f5; border-radius: 20px;}
+.sidebar a.active {
+  background: var(--color-sidebar-active-bg);
+  font-weight: 500;
+  color: #1557b0;
+  border-radius: 20px;
+}
+
+/* ── MAIN ── */
+.main {
+  flex: 1;
+  padding: 28px 32px;
+  overflow: hidden;
+}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.main-header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  flex: 1;
+}
+.filter-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  transition: background 0.15s;
+}
+.filter-btn:hover { background: #f5f5f5; }
+.filter-btn .material-icons-round { font-size: 22px; }
+
+/* ── SEARCH BAR ── */
+.search-bar {
+  position: relative;
+  margin-bottom: 24px;
+}
+.search-bar .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #5f6368;
+  font-size: 18px;
+  pointer-events: none;
+}
+.search-bar input {
+  width: 100%;
+  padding: 10px 14px 10px 44px;
+  background: var(--color-search-bg);
+  border: 1.5px solid transparent;
+  border-radius: 24px;
+  font-size: 14px;
+  font-family: var(--font-text);
+  color: var(--color-text);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.search-bar input:focus {
+  background: #fff;
+  border-color: #ebebeb;
+}
+.search-bar input::placeholder { color: #9aa0a6; }
+
+/* ── NEWS GRID ── */
+.news-grid {
+    display: grid;
+    /* Cria colunas de tamanhos iguais responsivas (mínimo 300px, máximo distribui por igual) */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  
+  .news-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Faz o conteúdo interno fluir verticalmente */
+    height: 100%;          /* Garante que todos os cards na mesma linha tenham a mesma altura */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .news-card:hover {
+    background-color: #f5f5f5;
+    }
+  
+  .news-card .fake-img {
+    width: 100%;
+    height: 180px;         /* Altura idêntica e fixa para todas as imagens */
+    object-fit: cover;
+    display: block;
+    border-radius: 0;      /* Removido o raio individual da imagem pois o card já tem */
+  }
+  
+  .news-card .card-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;          /* Força o conteúdo a expandir, empurrando o texto se necessário */
+  }
+  
+  .news-card h2 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  
+  .news-card h2 a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .news-card h2 a:hover {
+    color: #1557b0;        /* Cor de destaque sutil ao passar o mouse no título */
+  }
+  
+  .news-card p {
+    font-size: 14px;
+    color: var(--color-muted);
+    line-height: 1.5;
+    font-family: var(--font-text);
+    /* Truncamento opcional: limita o texto descritivo a 4 linhas para manter os cards ainda mais simétricos */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+/* placeholder gradients */
+.img-amazon   { background: linear-gradient(135deg,#2d6a4f,#74c69d); }
+.img-bus      { background: linear-gradient(135deg,#1565c0,#90caf9); }
+.img-conf     { background: linear-gradient(135deg,#1a237e,#5c6bc0); }
+.img-boi      { background: linear-gradient(135deg,#e65100,#ffcc02); }
+.img-pesca    { background: linear-gradient(135deg,#006064,#4dd0e1); }
+.img-barco    { background: linear-gradient(135deg,#b71c1c,#ef9a9a); }
+.img-security { background: linear-gradient(135deg,#37474f,#90a4ae); }
+.img-cap      { background: linear-gradient(135deg,#1b5e20,#a5d6a7); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--color-border);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.footer-logo svg { display: flex; }
+.footer-info {
+  font-size: 11px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  font-family: var(--font-text);
+}
+footer .spacer { flex: 1; }
+.footer-region {
+  font-size: 12px;
+  color: var(--color-muted);
+  font-weight: 500;
+}

@@ -1,0 +1,237 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #6b6b6b;
+  --color-border: #e4e4e4;
+  --color-sidebar-active-bg: #e8f0fe;
+  --color-search-bg: #f5f5f5;
+  --color-lingua: #FFD000;
+  --color-estados: #01499A;
+  --color-culinaria: #e8a000;
+  --color-biomas: #2ecc71;
+  --color-populacao: #9b59b6;
+  --font: 'Google Sans', sans-serif;
+  --font-text: 'Google Sans Text', 'Google Sans', sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── TOP NAV ── */
+.top-nav {
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 20px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.top-nav .logo-area {
+  display: flex;
+  align-items: center;
+  margin-right: 32px;
+  flex-shrink: 0;
+}
+.top-nav .logo-area svg {
+  display: block;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.nav-links a:hover { background: #f5f5f5; }
+.nav-links a.active { background: var(--color-search-bg); }
+.nav-links a.lingua    { color: var(--color-lingua); }
+.nav-links a.estados   { color: var(--color-estados); }
+.nav-links a.culinaria { color: var(--color-culinaria); }
+.nav-links a.biomas    { color: var(--color-biomas); }
+.nav-links a.populacao { color: var(--color-populacao); }
+
+
+/* ── SUB-HEADER ── */
+.sub-header {
+  border-bottom: 1px solid var(--color-border);
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg);
+}
+.sub-header .date {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.sub-header .spacer { flex: 1; }
+.sub-header .widgets {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.sub-header .widget {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.25;
+}
+.sub-header .widget .label {
+  font-size: 12px;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.sub-header .widget .label .material-icons-round {
+  font-size: 15px;
+}
+.sub-header .widget .value {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -2%;
+}
+
+/* ── ESTILIZAÇÃO DA PÁGINA DE TIRINHAS ── */
+
+.tirinhas-main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Google Sans', sans-serif;
+  text-align: center;
+}
+
+.tirinhas-header-container {
+  margin-bottom: 40px;
+}
+
+.tirinhas-main-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.tirinhas-main-subtitle {
+  font-size: 22px;
+  font-weight: 500;
+  color: #333;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+}
+
+/* Linha preta abaixo do subtítulo como no mockup */
+.tirinhas-main-subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: #000;
+}
+
+.tirinhas-lead-text {
+  font-size: 24px;
+  color: #444;
+  margin-bottom: 40px;
+}
+
+/* Grid de exibição das tirinhas */
+.tirinhas-feed {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.tirinha-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.tirinha-meta {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.tirinha-number {
+  background-color: #7224D8;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.tirinha-meta h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+.tirinha-img-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Bloco de texto inferior */
+.tirinhas-footer-text {
+  max-width: 750px;
+  margin: 40px auto 0 auto;
+  font-family: 'Google Sans Text', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--color-border);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.footer-logo svg { display: flex; }
+.footer-info {
+  font-size: 11px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  font-family: var(--font-text);
+}
+footer .spacer { flex: 1; }
+.footer-region {
+  font-size: 12px;
+  color: var(--color-muted);
+  font-weight: 500;
+}

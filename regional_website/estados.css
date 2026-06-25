@@ -1,0 +1,418 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #6b6b6b;
+  --color-border: #e4e4e4;
+  --color-sidebar-active-bg: #e8f0fe;
+  --color-search-bg: #f5f5f5;
+  --color-lingua: #FFD000;
+  --color-estados: #01499A;
+  --color-culinaria: #e8a000;
+  --color-biomas: #2ecc71;
+  --color-populacao: #9b59b6;
+  --font: 'Google Sans', sans-serif;
+  --font-text: 'Google Sans Text', 'Google Sans', sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── TOP NAV ── */
+.top-nav {
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 20px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 100;
+}
+.top-nav .logo-area {
+  display: flex;
+  align-items: center;
+  margin-right: 32px;
+  flex-shrink: 0;
+}
+.top-nav .logo-area svg { display: block; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.nav-links a:hover { background: #f5f5f5; }
+.nav-links a.active { background: var(--color-search-bg); color: var(--color-estados); }
+.nav-links a.lingua    { color: var(--color-lingua); }
+.nav-links a.estados   { color: var(--color-estados); }
+.nav-links a.culinaria { color: var(--color-culinaria); }
+.nav-links a.biomas    { color: var(--color-biomas); }
+.nav-links a.populacao { color: var(--color-populacao); }
+
+.nav-entrar {
+  background: #1a73e8;
+  color: #fff !important;
+  border-radius: 20px;
+  padding: 7px 18px !important;
+  font-weight: 600 !important;
+  transition: background 0.15s !important;
+}
+.nav-entrar:hover { background: #1557b0 !important; }
+
+/* ── SUB-HEADER ── */
+.sub-header {
+  border-bottom: 1px solid var(--color-border);
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-estados);
+}
+.sub-header .date {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-bg);
+}
+.sub-header .spacer { flex: 1; }
+.sub-header .widgets {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.sub-header .widget {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.25;
+}
+.sub-header .widget .label {
+  font-size: 12px;
+  color: var(--color-bg);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.sub-header .widget .label .material-icons-round { font-size: 15px; }
+.sub-header .widget .value {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--color-bg);
+}
+
+/* ── VIEWS ── */
+#view-list   { display: block; }
+#view-detail { display: none; }
+
+/* ── LIST HERO ── */
+.estados-hero {
+  text-align: center;
+  padding: 52px 40px 40px;
+}
+.estados-hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+.estados-hero h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3c4043;
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+.estados-hero h2::after {
+  content: '';
+  display: block;
+  margin: 10px auto 0;
+  width: 48px;
+  height: 3px;
+  background: var(--color-estados);
+  border-radius: 2px;
+}
+.estados-hero p {
+  font-size: 15px;
+  color: #5f6368;
+  max-width: 500px;
+  margin: 16px auto 0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ── STATE LIST ── */
+.estados-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 8px 30px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.estado-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #fff;
+  border: 1px solid #e8eaed;
+  border-radius: 14px;
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.estado-card:hover { border-color: var(--color-estados); }
+.estado-flag {
+  width: 96px;
+  height: 64px;
+  border-radius: 8px;
+  border: 1px solid #e8eaed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.estado-flag svg,
+.estado-flag img { width: 100%; height: 100%; object-fit: cover; }
+.estado-info { flex: 1; }
+.estado-info h3 {
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+.estado-info p {
+  font-size: 15px;
+  color: var(--color-text);
+  opacity: 0.7;
+  line-height: 1.5;
+}
+.btn-saiba {
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+.btn-saiba:hover { background: #1557b0; }
+
+/* ── DETAIL VIEW ── */
+.detail-back-bar {
+  padding: 16px 40px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn-back:hover { background: #f5f5f5; border-color: #bbb; }
+.btn-back .material-icons-round { font-size: 18px; }
+
+/* Header do detalhe: texto à esquerda, imagens à direita em grid 2×2 compacto */
+.detail-header {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 40px 40px 24px;
+}
+.detail-header-left { flex: 1; min-width: 0; }
+
+/* Grid de imagens: bandeira ocupa linha inteira no topo, foto e mapa lado a lado abaixo */
+.detail-header-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 10px;
+  width: 300px;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.detail-title {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.detail-intro {
+  font-size: 14px;
+  color: #3c4043;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* Data chips */
+.data-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+.data-chip {
+  background: var(--color-search-bg);
+  color: var(--color-text);
+  border-radius: 16px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.data-chip span {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-estados);
+  margin-bottom: 2px;
+}
+
+/* Imagem de bandeira: ocupa as 2 colunas */
+.side-flag-card {
+  grid-column: 1 / -1;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-sidebar-active-bg);
+}
+.side-flag-card svg,
+.side-flag-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Foto e mapa ficam lado a lado, alturas menores */
+.side-img-card {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.side-img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── SECTIONS ── */
+.detail-section {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 40px 32px;
+}
+.detail-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.detail-section h2::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 24px;
+  background: var(--color-estados);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.detail-section p {
+  font-size: 18px;
+  color: #3c4043;
+  line-height: 1.75;
+  max-width: 720px;
+}
+.detail-divider {
+  max-width: 1160px;
+  margin: 0 auto 32px;
+  padding: 0 40px;
+}
+.detail-divider hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--color-border);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.footer-logo svg { display: flex; }
+.footer-info {
+  font-size: 11px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  font-family: var(--font-text);
+}
+footer .spacer { flex: 1; }
+.footer-region {
+  font-size: 12px;
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .detail-header { flex-direction: column; }
+  .detail-header-right { width: 100%; grid-template-columns: 1fr 1fr 1fr; }
+  .side-flag-card { grid-column: 1 / -1; height: 80px; }
+  .side-img-card { height: 100px; }
+}
+@media (max-width: 600px) {
+  .estado-card { flex-wrap: wrap; }
+  .estados-hero h1 { font-size: 36px; }
+  .detail-title { font-size: 32px; }
+  .detail-header-right { grid-template-columns: 1fr 1fr; }
+  .detail-back-bar, .detail-header, .detail-section, .detail-divider {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .btn-saiba { width: 100%; text-align: center; }
+}

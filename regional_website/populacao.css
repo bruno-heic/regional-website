@@ -1,0 +1,384 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #6b6b6b;
+  --color-border: #e4e4e4;
+  --color-sidebar-active-bg: #e8f0fe;
+  --color-search-bg: #f5f5f5;
+  --color-lingua: #FFD000;
+  --color-estados: #01499A;
+  --color-culinaria: #e8a000;
+  --color-biomas: #2ecc71;
+  --color-populacao: #9b59b6;
+  --font: 'Google Sans', sans-serif;
+  --font-text: 'Google Sans Text', 'Google Sans', sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── TOP NAV ── */
+.top-nav {
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 20px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.top-nav .logo-area {
+  display: flex;
+  align-items: center;
+  margin-right: 32px;
+  flex-shrink: 0;
+}
+.top-nav .logo-area svg {
+  display: block;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.nav-links a:hover { background: #f5f5f5; }
+.nav-links a.active { background: var(--color-search-bg); }
+.nav-links a.lingua    { color: var(--color-lingua); }
+.nav-links a.estados   { color: var(--color-estados); }
+.nav-links a.culinaria { color: var(--color-culinaria); }
+.nav-links a.biomas    { color: var(--color-biomas); }
+.nav-links a.populacao { color: var(--color-populacao); }
+
+
+/* ── SUB-HEADER ── */
+.sub-header {
+  border-bottom: 1px solid var(--color-border);
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg);
+}
+.sub-header .date {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.sub-header .spacer { flex: 1; }
+.sub-header .widgets {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.sub-header .widget {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.25;
+}
+.sub-header .widget .label {
+  font-size: 12px;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.sub-header .widget .label .material-icons-round {
+  font-size: 15px;
+}
+.sub-header .widget .value {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -2%;
+}
+
+/* ── ESTILIZAÇÃO DA PÁGINA DE POPULAÇÃO ── */
+
+:root {
+  --theme-yellow: #FFB700;
+  --theme-yellow-light: #FFF9E6;
+  --text-dark: #222;
+  --border-radius-main: 16px;
+}
+
+.populacao-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Google Sans', sans-serif;
+}
+
+.populacao-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.populacao-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.populacao-subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: #555;
+  text-transform: capitalize;
+  margin-bottom: 15px;
+}
+
+.populacao-lead {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Indicadores Rápidos (Linha Superior) */
+.indicadores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.indicador-card {
+  border: 2px solid var(--theme-yellow);
+  border-radius: var(--border-radius-main);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fff;
+}
+
+.icon-yellow {
+  font-size: 36px;
+  color: var(--theme-yellow);
+}
+
+.indicador-info strong {
+  display: block;
+  font-size: 24px;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.indicador-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Seções estruturadas em Boxes com Borda Amarela */
+.populacao-section-box {
+  border: 2px solid var(--theme-yellow);
+  border-radius: var(--border-radius-main);
+  padding: 25px;
+  margin-bottom: 40px;
+  background: #fff;
+}
+
+.section-box-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-top: 0;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.distribuicao-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.distribuicao-mapa img {
+  width: 100%;
+  max-width: 380px;
+  display: block;
+  margin: 0 auto;
+}
+
+.distribuicao-dados {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dado-linha {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.text-yellow {
+  color: var(--theme-yellow);
+}
+
+/* Grid de Diversidade Cultural */
+.populacao-section-title {
+  font-size: 22px;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.diversidade-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.diversidade-card {
+  border: 2px solid var(--theme-yellow);
+  border-radius: var(--border-radius-main);
+  padding: 20px;
+  background: #fff;
+}
+
+.div-card-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--theme-yellow);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.diversidade-card h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: var(--text-dark);
+}
+
+.diversidade-card p {
+  margin: 0;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Layout Duas Colunas Inferiores */
+.populacao-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.col-box {
+  border: 2px solid var(--theme-yellow);
+  border-radius: var(--border-radius-main);
+  padding: 25px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.grafico-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.col-box-caption {
+  background-color: var(--theme-yellow-light);
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: auto;
+  font-size: 13px;
+  color: #444;
+}
+
+/* Layout Interno dos Ribeirinhos (Imagem + Marcadores) */
+.ribeirinhos-split {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ribeirinhos-img img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.ribeirinhos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ribeirinho-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot-yellow {
+  width: 12px;
+  height: 12px;
+  background-color: var(--theme-yellow);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ribeirinho-item p {
+  margin: 0;
+  font-size: 13px;
+  color: #333;
+}
+
+/* Responsividade Básica */
+@media(max-width: 768px) {
+  .distribuicao-content, 
+  .populacao-two-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--color-border);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.footer-logo svg { display: flex; }
+.footer-info {
+  font-size: 11px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  font-family: var(--font-text);
+}
+footer .spacer { flex: 1; }
+.footer-region {
+  font-size: 12px;
+  color: var(--color-muted);
+  font-weight: 500;
+}

@@ -1,0 +1,418 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #6b6b6b;
+  --color-border: #e4e4e4;
+  --color-sidebar-active-bg: #e8f0fe;
+  --color-search-bg: #f5f5f5;
+  --color-lingua: #FFD000;
+  --color-estados: #01499A;
+  --color-culinaria: #e8a000;
+  --color-biomas: #2ecc71;
+  --color-populacao: #9b59b6;
+  --font: 'Google Sans', sans-serif;
+  --font-text: 'Google Sans Text', 'Google Sans', sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── TOP NAV ── */
+.top-nav {
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 20px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.top-nav .logo-area {
+  display: flex;
+  align-items: center;
+  margin-right: 32px;
+  flex-shrink: 0;
+}
+.top-nav .logo-area svg {
+  display: block;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.nav-links a:hover { background: #f5f5f5; }
+.nav-links a.active { background: var(--color-search-bg); }
+.nav-links a.lingua    { color: var(--color-lingua); }
+.nav-links a.estados   { color: var(--color-estados); }
+.nav-links a.culinaria { color: var(--color-culinaria); }
+.nav-links a.biomas    { color: var(--color-biomas); }
+.nav-links a.populacao { color: var(--color-populacao); }
+
+/* ── SUB-HEADER ── */
+.sub-header {
+  border-bottom: 1px solid var(--color-border);
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-culinaria);
+}
+.sub-header .date {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+.sub-header .spacer { flex: 1; }
+.sub-header .widgets {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.sub-header .widget {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.25;
+}
+.sub-header .widget .label {
+  font-size: 12px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.sub-header .widget .label .material-icons-round {
+  font-size: 15px;
+}
+.sub-header .widget .value {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -2%;
+  color: #fff;
+}
+
+/* ── HERO ── */
+.culinaria-hero {
+  text-align: center;
+  padding: 60px 40px 40px;
+  position: relative;
+}
+.culinaria-hero-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.culinaria-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+.culinaria-subtitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #202124;
+  margin-bottom: 24px;
+  text-transform: capitalize;
+}
+.culinaria-desc {
+  font-size: 15px;
+  color: #5f6368;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.culinaria-hero .filter-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1a1a1a;
+  display: flex;
+}
+
+/* ── SECTION WRAPPER (compartilhado) ── */
+.culinaria-section {
+  padding: 40px 0;
+}
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  gap: 48px;
+}
+.section-inner--stack {
+  flex-direction: column;
+  gap: 24px;
+}
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.section-bar {
+  width: 4px;
+  height: 24px;
+  background: var(--color-culinaria);
+  border-radius: 4px;
+}
+.section-heading h3 {
+  font-size: 22px;
+  font-weight: 700;
+}
+.section-desc {
+  font-size: 14px;
+  color: #5f6368;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* ── GRADE DE PRATOS ── */
+.pratos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.prato-card {
+  position: relative;
+  border: none;
+  padding: 0;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #f1f3f4;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.prato-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+.prato-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+.prato-card:hover img {
+  transform: scale(1.05);
+}
+.prato-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
+  color: #fff;
+  padding: 14px 16px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.prato-overlay .prato-nome {
+  font-weight: 700;
+  font-size: 15px;
+}
+.prato-overlay .ver-mais {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.prato-overlay .ver-mais .material-icons-round { font-size: 14px; }
+
+/* ── TELA DE DETALHE DA RECEITA ── */
+.detail-back-bar {
+  padding: 16px 40px 0;
+}
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+  padding: 8px 14px;
+  border-radius: 20px;
+  transition: background 0.15s;
+}
+.btn-back:hover { background: var(--color-search-bg); }
+
+.detail-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 40px 0;
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+.detail-header-left { flex: 1; }
+.detail-title {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--color-culinaria);
+  margin-bottom: 16px;
+}
+.detail-intro {
+  font-size: 14.5px;
+  color: #3c4043;
+  font-weight: 500;
+  line-height: 1.7;
+  background: var(--color-culinaria-bg);
+  border: 1px solid var(--color-culinaria-border);
+  border-radius: 12px;
+  padding: 20px 22px;
+}
+.detail-header-right {
+  width: 420px;
+  flex-shrink: 0;
+}
+.detail-header-right img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Ingredientes */
+.ingredients-card {
+  background: var(--color-culinaria-bg);
+  border: 1px solid var(--color-culinaria-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+.ingredients-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ingredients-list li {
+  font-size: 14px;
+  color: #3c4043;
+  padding-left: 18px;
+  position: relative;
+}
+.ingredients-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-culinaria);
+}
+.ingredients-list li.subtitulo {
+  font-weight: 700;
+  color: #1a1a1a;
+  padding-left: 0;
+  margin-top: 6px;
+}
+.ingredients-list li.subtitulo::before { content: none; }
+
+/* Modo de preparo */
+.preparo-block { margin-bottom: 28px; }
+.preparo-block:last-child { margin-bottom: 0; }
+.preparo-block h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.preparo-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.preparo-steps li {
+  display: flex;
+  gap: 16px;
+}
+.step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-culinaria-soft);
+  color: var(--color-culinaria);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.step-text {
+  font-size: 13.5px;
+  color: #3c4043;
+  line-height: 1.6;
+  padding-top: 5px;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--color-border);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.footer-logo svg { display: flex; }
+.footer-info {
+  font-size: 11px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  font-family: var(--font-text);
+}
+footer .spacer { flex: 1; }
+.footer-region {
+  font-size: 12px;
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+/* ── RESPONSIVO ── */
+@media (max-width: 1024px) {
+  .pratos-grid { grid-template-columns: repeat(2, 1fr); }
+  .detail-header { flex-direction: column; align-items: stretch; }
+  .detail-header-right { width: 100%; }
+}
+@media (max-width: 700px) {
+  .top-nav { overflow-x: auto; }
+  .culinaria-hero { padding: 40px 20px 30px; }
+  .culinaria-title { font-size: 34px; }
+  .pratos-grid { grid-template-columns: 1fr; }
+  .detail-header, .section-inner, .detail-back-bar { padding-left: 20px; padding-right: 20px; }
+  .sub-header { flex-wrap: wrap; row-gap: 8px; }
+}
