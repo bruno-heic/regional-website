@@ -39,4 +39,10 @@ A identidade visual do site reflete visualmente a proposta do projeto. Foram sel
 Em conjunto, essa paleta harmoniosa reforça o compromisso do grupo em entregar uma experiência que amplie os horizontes de quem deseja conhecer a fundo a verdadeira essência da Região Norte.
 
 ---
+
+## Link do protótipo no Figma
+https://www.figma.com/design/7c04CUD8L3UkqcObo5rKHm/Site-Regional?node-id=0-1&t=8phqCODkLWQZ6uU0-1
+
+---
+
 *Trabalho acadêmico desenvolvido com foco em acessibilidade, design responsivo e disseminação cultural.*
